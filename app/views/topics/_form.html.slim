@@ -1,0 +1,5 @@
+= simple_form_for @topic do |f|
+   = f.association :partition, :collection => Partition.all(:order => 'name'), :prompt => "Choose a Category"
+   = f.input :name
+   = f.text_area :description
+   = f.button :submit, :id => 'sub_btn'

@@ -1,0 +1,32 @@
+//h1= @user_profile.nick
+#profile_view
+  .thumbnails
+    .span3
+      a.thumbnail href="#"
+        img alt="" src="http://placehold.it/360x360"
+
+  span.label First Name
+  .well
+    h3= @user.user_profile.first_name
+
+  span.label Last Name
+  .well
+    h3= @user.user_profile.last_name
+
+  span.label Birthday
+  .well
+    h3= @user.user_profile.birthdate
+
+  span.label Contacts
+  .well
+    h3= @user.user_profile.public_email
+
+  span.label Gender
+  .well
+    h3= @user.user_profile.gender
+
+  span.label City
+  .well
+    h3= @user.user_profile.city
+
+  = link_to "EDIT", edit_user_profile_path, :class => 'btn'

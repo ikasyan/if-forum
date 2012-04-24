@@ -1,0 +1,42 @@
+//sass:
+// li
+//    line-height: 30px
+//
+//ul style='color: red; font-size: 24px;'
+//  li Format Created-at ------------Vova
+//  li sort from newest to oldest+++++++++++++++++++++Petro done
+//  li pagination with will_paginate, or kaminary  ++++++++++++++++Petro done
+//  li remove not needed buttons, e.g. Back  +++++++++++Petro done
+//  li Categories List => show topics count in (5)  ++++++++++++Vova done
+//  li Add favicon file   ------------Petro some trouble??????????
+//  li simple_form gem  +++++++++++++Olya
+// li if table is empty do not show table +++++++++++++++ Olya done
+// li після того як комент додався - редіректити на сторінку Топіка, а не комента +++++++++Vova done
+//  li попрацювати над UI +++---+++---Petro
+//  li http://rubyclub.com.ua/ ++++++++viewed
+//  li * inherited_resources gem
+h1 Topics
+table.table.table-striped
+  -if @topics.nil? || @topics.empty?
+    h1 There are no topics yet
+  -else 
+    thead
+      tr
+        th Title
+        th Description
+        th Published
+        th 
+
+    tbody
+      - @topics.each do |topic|
+        tr
+          td = link_to topic.name, topic_posts_path( :topic_id => topic.id)
+          td = topic.description
+          td = topic.created_at
+          td
+            = link_to 'Edit', edit_topic_path(topic), :class => 'btn btn-mini'
+            = link_to 'Delete', topic_path(topic), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+= link_to 'New', new_topic_path, :partition_id => @topics.last.try( :partition_id), :class => 'btn btn-primary'
+.pagination
+  = will_paginate @topics

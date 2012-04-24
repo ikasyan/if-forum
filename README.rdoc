@@ -1,0 +1,33 @@
+mkdir [dirname]
+
+cd [dirname]
+
+git init
+
+git remote add origin git@github.com:azaytc/Rails-Forum.git
+
+git pull origin master
+
+
+then change your name and password in /config/database.yml
+
+gem install devise
+
+bundle install
+
+
+rake db:create
+
+rake db:migrate
+
+rake db:seed
+
+rails s
+
+CODING 
+
+git add -p
+
+git commit -a -m "message"
+
+git push origin master

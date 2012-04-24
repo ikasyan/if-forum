@@ -1,0 +1,26 @@
+h1 = @topic.name
+table.table.table-striped
+  -if @posts.nil? || @posts.empty?
+    h1 There are no posts yet
+  -else  
+    thead
+      tr
+        th name
+        th Comment
+        th Published
+        th 
+
+    tbody
+      - @posts.each do |post|
+        tr
+          //td = current_user.email
+          td = post.content
+          td = post.created_at
+          td
+            = link_to 'Edit', edit_topic_post_path(@topic, post), :class => 'btn btn-mini'
+            = link_to 'Delete', topic_post_path(@topic, post), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+    
+= link_to 'New', new_topic_post_path, :class => 'btn btn-primary'
+
+.pagination
+  = will_paginate @posts

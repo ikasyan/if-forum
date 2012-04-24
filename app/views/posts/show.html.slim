@@ -1,0 +1,18 @@
+h1 Post
+
+p
+  b Topic
+  br = @post.topic_id
+
+p
+  b Name
+  br = @post.name
+
+p
+  b Content
+  br = @post.content
+
+.form-actions
+  = link_to 'Back', topic_posts_path, :class => 'btn'
+  = link_to 'Edit', edit_topic_post_path, :class => 'btn'
+  = link_to 'Delete', topic_post_path, :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger'
