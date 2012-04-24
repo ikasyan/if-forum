@@ -4,7 +4,7 @@ cd [dirname]
 
 git init
 
-git remote add origin git@github.com:azaytc/Rails-Forum.git
+git remote add origin git@github.com:ikasyan/if-forum.git
 
 git pull origin master
 
